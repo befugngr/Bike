@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mike's Bikes in Folsom</title>
+    <meta
+      name="keywords"
+      content="bikes, mountain bikes, road bikes, electric bikes, kids bikes, bike shop, Folsom bikes, cycling Folsom, bike fix"
+    />
+    <meta name="author" content="Mike's Bikes" />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        background-color: #e2e2e2;
+        padding-top: 70px;
+      }
+      header {
+        background-color: #f3f3ed;
+        padding: 1rem;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+      }
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .logo {
+        font-family: Arial, sans-serif;
+        font-size: 24px;
+        font-weight: bold;
+        font-style: italic;
+        color: #090909;
+        margin-right: auto;
+        padding: 1rem;
+      }
+      .nav-links {
+        list-style: none;
+        display: flex;
+      }
+      .nav-links li {
+        margin-left: 1rem;
+      }
+      .nav-links a {
+        color: rgb(0, 0, 0);
+        text-decoration: none;
+        font-size: 18px;
+        padding: 10px 15px;
+      }
+      .nav-links a:hover {
+        color: #000000;
+        text-decoration: underline;
+      }
+      .hero {
+        background-image: url("mountainbike4.webp");
+        background-size: cover;
+        background-position: center;
+        color: white;
+        text-align: center;
+        padding: 100px 20px;
+        min-height: 70vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      h1 {
+        font-size: 3em;
+        margin: 0;
+      }
+      p {
+        font-size: 16px;
+        margin: 10px 0;
+      }
+      .cta-button {
+        background: rgb(243, 243, 243);
+        color: #000000;
+        border: none;
+        padding: 8px 15px;
+        font-size: 1em;
+        width: 120px;
+        cursor: pointer;
+        transition: background 0.3s, transform 0.3s;
+      }
+      .cta-button:hover {
+        background: #c5c1c1;
+        color: rgb(255, 255, 255);
+        transform: scale(1.05);
+      }
+      .about-container {
+        display: flex;
+        justify-content: space-between;
+        max-width: 1200px;
+        margin: 20px auto;
+      }
+      .about-us {
+        background-color: #ffffff;
+        color: #333;
+        text-align: center;
+        padding: 30px 20px;
+        border-radius: 8px;
+        flex: 1;
+        margin-right: 20px;
+      }
+      .store-hours {
+        background-color: #ffffff;
+        color: #333;
+        text-align: center;
+        padding: 40px 20px;
+        border-radius: 8px;
+        flex: 0 0 250px;
+      }
+      .store-hours h2 {
+        margin-bottom: 20px;
+      }
+      .store-hours p {
+        margin: 5px 0;
+      }
+      .catalog {
+        max-width: 1200px;
+        margin: 40px auto;
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 15px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+      .bikes-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        margin-top: 20px;
+      }
+      .bike-card {
+        background: white;
+        border-radius: 15px;
+        padding: 25px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+      }
+      .bike-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+      }
+      .bike-info h3 {
+        color: #000000;
+        margin: 15px 0;
+      }
+      .price {
+        color: #d5d5bb;
+        font-size: 1.5em;
+        font-weight: bold;
+        margin: 15px 0;
+      }
+      .bike-image {
+        width: 100%;
+        max-height: 200px;
+        object-fit: contain;
+        border-radius: 10px;
+      }
+      .contact-section {
+        margin: 40px auto;
+        max-width: 1200px;
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 15px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+      .form-group {
+        margin-bottom: 15px;
+      }
+      .form-group label {
+        display: block;
+        margin-bottom: 5px;
+      }
+      .form-group input,
+      .form-group select,
+      .form-group textarea {
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #000000;
+      }
+      .submit-button {
+        background: #f3f3ed;
+        color: #000000;
+        border: none;
+        padding: 10px 15px;
+        cursor: pointer;
+        transition: background 0.3s;
+      }
+      .submit-button:hover {
+        background: #f3f3ed;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="logo">Mike's Bikes</div>
+        <ul class="nav-links">
+          <li><a href="#about-us">About</a></li>
+          <li><a href="#catalog">Products</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div class="hero fade-in" aria-label="mounntain biking">
+      <h1>Get Your Bike Today</h1>
+      <a href="#catalog" class="cta-button">Get Started</a>
+    </div>
+    <div class="about-container">
+      <section class="about-us">
+        <h2>About Us</h2>
+        <p>
+          Mike's Bikes of Folsom is located in the Historic District and
+          surrounded by some of the best cycling in the area. Visit our shop for
+          the widest selection of bikes from renowned brands like Cannondale,
+          Santa Cruz, Cervelo, Giant, Gazelle, and Pivot Cycles. Whatever
+          terrain suits you best, we have the road bike, mountain bike, kids
+          bike, or electric bike for you. Our expert bike techs are ready to
+          provide top-notch tune-ups, and don't forget to check our event
+          calendar for exciting group rides in the area.
+        </p>
+      </section>
+      <section class="store-hours">
+        <h2>Store Hours</h2>
+        <p>Monday to Friday: 10am - 7pm</p>
+        <p>Saturday-Sunday: 10am-5pm</p>
+      </section>
+    </div>
+    <div class="catalog" id="catalog">
+      <h2>Bike Catalog</h2>
+      <div class="bikes-grid">
+        <div class="bike-card">
+          <img class="bike-image" src="mountainbike1.png" alt="Mountain Bike" />
+          <div class="bike-info">
+            <h3>Mountain Bike</h3>
+            <p>Good for trails</p>
+            <div class="price">$1,352</div>
+            <button class="cta-button">Learn More</button>
+          </div>
+        </div>
+        <div class="bike-card">
+          <img class="bike-image" src="childBike1.png" alt="Kid X Bike" />
+          <div class="bike-info">
+            <h3>Kid X Bike</h3>
+            <p>Good for little kids</p>
+            <div class="price">$123</div>
+            <button class="cta-button">Learn More</button>
+          </div>
+        </div>
+        <div class="bike-card">
+          <img class="bike-image" src="roadbike3.png" alt="Speed Road Bike" />
+          <div class="bike-info">
+            <h3>Speed Road Bike</h3>
+            <p>A racing road bike</p>
+            <div class="price">$1,299</div>
+            <button class="cta-button">Learn More</button>
+          </div>
+        </div>
+        <div class="bike-card">
+          <img class="bike-image" src="cruiserbike1.webp" alt="Cruiser bike" />
+          <div class="bike-info">
+            <h3>Cruiser bike</h3>
+            <p>To cruise on roads</p>
+            <div class="price">$956</div>
+            <button class="cta-button">Learn More</button>
+          </div>
+        </div>
+        <div class="bike-card">
+          <img class="bike-image" src="helmet1.webp" alt="Yellow Helmet" />
+          <div class="bike-info">
+            <h3>Yellow Helmet</h3>
+            <p>Protects your head</p>
+            <div class="price">$70</div>
+            <button class="cta-button">Learn More</button>
+          </div>
+        </div>
+        <div class="bike-card">
+          <img class="bike-image" src="helmet2.webp" alt="Bike Helmet" />
+          <div class="bike-info">
+            <h3>Bike Helmet</h3>
+            <p>Protects your head</p>
+            <div class="price">$50</div>
+            <button class="cta-button">Learn More</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-section" id="contact">
+      <h2>Contact Us</h2>
+      <form>
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+        <div class="form-group">
+          <label for="message">Message:</label>
+          <textarea id="message" name="message" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="submit-button">Submit</button>
+      </form>
+    </div>
+
+    <div class="contact-section">
+      <h2>Request Bike Service</h2>
+      <form>
+        <div class="form-group">
+          <label for="service-type">Type of Service:</label>
+          <select id="service-type" name="service-type" required>
+            <option value="" disabled selected>Select a service</option>
+            <option value="tune-up">Repair</option>
+            <option value="brake-repair">Assembly</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+        <div class="form-group">
+          <label for="service-details">Details:</label>
+          <textarea
+            id="service-details"
+            name="service-details"
+            rows="4"
+            required
+          ></textarea>
+        </div>
+        <button type="submit" class="submit-button">Request Service</button>
+      </form>
+    </div>
+
+    <script>
+      const buttons = document.querySelectorAll(".bike-card .cta-button");
+      buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const bikeName = button
+            .closest(".bike-card")
+            .querySelector("h3").textContent;
+          const bikePrice = button
+            .closest(".bike-card")
+            .querySelector(".price").textContent;
+          alert(
+            `Thank you for your interest in the ${bikeName} (${bikePrice})!`
+          );
+        });
+      });
+    </script>
+  </body>
+</html>
